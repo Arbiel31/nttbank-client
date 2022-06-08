@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
 public interface PersonRepository extends ReactiveMongoRepository<PersonModel,String> {
-    long deleteByDni(String dni);
+    Mono<Void> deleteByDni(String dni);
 
     @Query("{dni: ?0}")
     Mono<PersonModel> findByDni(String dni);

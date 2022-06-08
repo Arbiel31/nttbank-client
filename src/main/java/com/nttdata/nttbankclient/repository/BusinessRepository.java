@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Mono;
 
 public interface BusinessRepository extends ReactiveMongoRepository<BusinessModel,String> {
-    long deleteByRuc(String ruc);
+    Mono<Void> deleteByRuc(String ruc);
 
     @Query("{ruc: ?0}")
     Mono<BusinessModel> findByRuc(String ruc);

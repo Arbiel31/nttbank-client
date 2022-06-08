@@ -14,7 +14,7 @@ public class TransactionModel {
     @Id
     private String id;
 
-    private boolean type;
+    private String type;
 
     private float funds;
 

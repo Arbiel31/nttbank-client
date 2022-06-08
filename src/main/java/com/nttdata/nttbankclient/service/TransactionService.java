@@ -11,7 +11,11 @@ public interface TransactionService {
 
     Mono<TransactionModel> update(TransactionModel transaction);
 
-    void deleteById(String id);
+    Mono<Void> deleteById(String id);
 
     Mono<TransactionModel>  findById(String id);
+
+    Flux<TransactionModel> findByClient(String doc);
+
+    Flux<TransactionModel> findByAccount(String number);
 }

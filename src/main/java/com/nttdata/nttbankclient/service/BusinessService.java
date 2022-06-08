@@ -12,7 +12,7 @@ public interface BusinessService {
 
     Mono<BusinessModel> update(BusinessModel business);
 
-    void deleteByRuc(String ruc);
+    Mono<Void> deleteByRuc(String ruc);
 
     Mono<BusinessModel>  findByRuc(String ruc);
 }

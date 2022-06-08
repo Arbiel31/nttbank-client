@@ -13,7 +13,7 @@ public interface PersonService {
 
     Mono<PersonModel> update(PersonModel person);
 
-    void deleteByDni(String dni);
+    Mono<Void> deleteByDni(String dni);
 
     Mono<PersonModel>  findByDni(String dni);
 }
