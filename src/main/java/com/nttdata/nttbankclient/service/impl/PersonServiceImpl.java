@@ -36,6 +36,7 @@ public class PersonServiceImpl implements PersonService {
 
         LOGGER.info("Verifying person duplicates");
 
+        //Se verifica la no duplicidad del cliente a registrar
         return personRepository.findByDni(person.getDni())
                 .flatMap(__ -> Mono.error(new CustomException(message)))
                 .switchIfEmpty(Mono.defer(()->personRepository.save(person)))

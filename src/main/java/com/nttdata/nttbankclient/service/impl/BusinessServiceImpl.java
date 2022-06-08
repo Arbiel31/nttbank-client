@@ -36,6 +36,7 @@ public class BusinessServiceImpl implements BusinessService {
 
         LOGGER.info("Verifying business duplicates");
 
+        //Se verifica la no duplicidad de la empresa a registrar
         return businessRepository.findByRuc(business.getRuc())
                 .flatMap(__ -> Mono.error(new CustomException(message)))
                 .switchIfEmpty(Mono.defer(()->businessRepository.save(business)))

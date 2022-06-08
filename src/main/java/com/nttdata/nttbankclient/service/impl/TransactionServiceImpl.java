@@ -42,6 +42,8 @@ public class TransactionServiceImpl implements TransactionService {
     public Mono<TransactionModel> create(TransactionModel transaction) {
         float balance=0;
         LOGGER.info("Calculating balance");
+
+        //Se calcula el saldo tras la operación
         switch(transaction.getType()) {
             case "1":
                 balance=transaction.getFunds()-transaction.getAmount();
@@ -53,11 +55,15 @@ public class TransactionServiceImpl implements TransactionService {
                 break;
             default:
                 LOGGER.error(message);
+                //Si se recibe un tipo de operación diferente, devolverá la excepcion
                 throw new CustomException(message);
         }
 
         if(balance<0){
             LOGGER.error(message_balance);
+
+            //La operación no se completará si no hay fondos suficientes en la cuenta
+
             throw new CustomException(message_balance);
         }
 

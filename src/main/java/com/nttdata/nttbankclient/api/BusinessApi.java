@@ -5,8 +5,6 @@ import com.nttdata.nttbankclient.service.BusinessService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -37,7 +35,7 @@ public class BusinessApi {
         return businessService.update(business);
     }
 
-    @DeleteMapping("/{dni}")
+    @DeleteMapping("/{ruc}")
     public Mono<Void> delete(@PathVariable("ruc") String ruc){
         LOGGER.info("Call to Business deleteByRuc method");
         return businessService.deleteByRuc(ruc);

@@ -5,8 +5,6 @@ import com.nttdata.nttbankclient.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -50,12 +48,14 @@ public class TransactionApi {
         return transactionService.findById(id);
     }
 
+    //Lista todas las operaciones del cliente según su DNI/RUC
     @GetMapping("/client/{doc}")
     public Flux<TransactionModel> findByClient(@PathVariable("doc") String doc){
         LOGGER.info("Call to Transaction findByClient method");
         return transactionService.findByClient(doc);
     }
 
+    //Lista todas las operaciones realizadas en una cuenta/producto
     @GetMapping("/account/{number}")
     public Flux<TransactionModel> findByAccount(@PathVariable("number") String number){
         LOGGER.info("Call to Transaction findByAccount method");
