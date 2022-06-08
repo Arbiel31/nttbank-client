@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: nttbank-client
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: nttbank
+      password: 12345
+
