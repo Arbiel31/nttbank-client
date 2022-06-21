@@ -6,4 +6,3 @@ spring:
       uri: http://localhost:8081
       username: nttbank
       password: 12345
-

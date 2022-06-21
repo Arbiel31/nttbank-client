@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping(value = "transaction")
 public class TransactionApi {
@@ -60,5 +62,10 @@ public class TransactionApi {
     public Flux<TransactionModel> findByAccount(@PathVariable("number") String number){
         LOGGER.info("Call to Transaction findByAccount method");
         return transactionService.findByAccount(number);
+    }
+
+    @GetMapping("/commission")
+    public Flux<TransactionModel> reportCommission(@RequestParam String startDate,@RequestParam String endDate,@RequestParam String account){
+        return transactionService.reportCommission(startDate,endDate,account);
     }
 }
