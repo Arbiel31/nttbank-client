@@ -6,6 +6,8 @@ import com.nttdata.nttbankclient.repository.BusinessRepository;
 import com.nttdata.nttbankclient.repository.PersonRepository;
 import com.nttdata.nttbankclient.repository.TransactionRepository;
 import com.nttdata.nttbankclient.service.TransactionService;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +15,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.sql.SQLOutput;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * Service.
@@ -131,7 +122,7 @@ public class TransactionServiceImpl implements TransactionService {
 
   @Override
   public Flux<TransactionModel> reportCommission(String startDate, String endDate, String account) {
-    return transactionRepository.reportCommission(startDate,endDate,account);
+    return transactionRepository.reportCommission(startDate, endDate, account);
   }
 
   private TransactionModel calculateCommission(TransactionModel transaction) {

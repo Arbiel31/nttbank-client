@@ -1,13 +1,12 @@
 package com.nttdata.nttbankclient.exception;
 
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Data
 public class ExceptionResponse {
-    private LocalDateTime date;
-    private String message;
+  private LocalDateTime date;
+  private String message;
 }

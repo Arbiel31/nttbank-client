@@ -6,13 +6,13 @@ import reactor.core.publisher.Mono;
 
 public interface BusinessService {
 
-    Flux<BusinessModel> findAll();
+  Flux<BusinessModel> findAll();
 
-    Mono<BusinessModel> create(BusinessModel business);
+  Mono<BusinessModel> create(BusinessModel business);
 
-    Mono<BusinessModel> update(BusinessModel business);
+  Mono<BusinessModel> update(BusinessModel business);
 
-    Mono<Void> deleteByRuc(String ruc);
+  Mono<Void> deleteByRuc(String ruc);
 
-    Mono<BusinessModel>  findByRuc(String ruc);
+  Mono<BusinessModel> findByRuc(String ruc);
 }
